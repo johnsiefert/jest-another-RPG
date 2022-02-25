@@ -1,5 +1,5 @@
-const { User, Thought } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
+const { User, Thought } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -36,6 +36,7 @@ const resolvers = {
       return Thought.findOne({ _id });
     }
   },
+
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
